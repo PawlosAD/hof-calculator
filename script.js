@@ -3,9 +3,9 @@ const presets = {
   jordan: { mvps: 5, allstars: 14, rings: 6, points: 32, retired: 20 }
 };
 
-function updateValue(sliderId, spanId) {
-  document.getElementById(spanId).innerText =
-    document.getElementById(sliderId).value;
+function updateValue(slider, label) {
+  document.getElementById(label).innerText =
+    document.getElementById(slider).value;
 }
 
 function loadPlayer(name) {
@@ -15,6 +15,7 @@ function loadPlayer(name) {
     document.getElementById(key).value = p[key];
     document.getElementById(key + "Val").innerText = p[key];
   }
+  calculate();
 }
 
 function calculate() {
@@ -28,7 +29,7 @@ function calculate() {
     mvps * 10 +
     allstars * 2 +
     rings * 5 +
-    (points >= 20 ? 10 : points / 2);
+    Math.min(points, 20);
 
   score = Math.min(score, 100);
 
@@ -42,9 +43,46 @@ function calculate() {
   document.getElementById("verdict").innerText = verdict;
 
   document.getElementById("eligibility").innerText =
-    retired < 3 ? "⚠️ Not yet eligible (must be retired 3 seasons)" : "";
+    retired < 3 ? "⚠ Not yet eligible (3 seasons retired required)" : "";
+
+  drawGraph();
 }
 
+function toggleGraph() {
+  const canvas = document.getElementById("graph");
+  canvas.style.display = canvas.style.display === "none" ? "block" : "none";
+  if (canvas.style.display === "block") drawGraph();
+}
+
+function drawGraph() {
+  const canvas = document.getElementById("graph");
+  if (canvas.style.display === "none") return;
+
+  const ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  const mvps = +mvpsInput();
+  const allstars = +allstarsInput();
+
+  const career = Math.max(allstars, 5);
+  const peak = Math.min(90, mvps * 15 + allstars * 3);
+
+  ctx.strokeStyle = "#00ff88";
+  ctx.beginPath();
+
+  for (let year = 0; year <= career; year++) {
+    const x = (year / career) * canvas.width;
+    const peakYear = career / 2;
+    const dom =
+      peak * Math.exp(-Math.pow(year - peakYear, 2) / (career * 2));
+    const y = canvas.height - (dom / 100) * canvas.height;
+    year === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  }
+
+  ctx.stroke();
+}
+
+// input helpers
 const mvpsInput = () => document.getElementById("mvps").value;
 const allstarsInput = () => document.getElementById("allstars").value;
 const ringsInput = () => document.getElementById("rings").value;

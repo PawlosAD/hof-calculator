@@ -1,8 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HOF Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+
 <body>
   <div class="calculator">
 
     <div class="screen">
-      <div class="title">HOF CALCULATOR</div>
+      <div class="title">HALL OF FAME CALCULATOR</div>
       <div id="percent" class="output">0%</div>
       <div id="verdict" class="sub-output">---</div>
       <div id="eligibility" class="eligibility"></div>
@@ -16,20 +26,24 @@
 
     <div class="inputs">
       <label>MVPs: <span id="mvpVal">0</span></label>
-      <input type="range" id="mvps" min="0" max="6" oninput="updateValue('mvps','mvpVal')">
+      <input type="range" id="mvps" min="0" max="6" value="0" oninput="updateValue('mvps','mvpVal')">
 
       <label>All-Stars: <span id="asVal">0</span></label>
-      <input type="range" id="allstars" min="0" max="20" oninput="updateValue('allstars','asVal')">
+      <input type="range" id="allstars" min="0" max="20" value="0" oninput="updateValue('allstars','asVal')">
 
-      <label>Rings: <span id="ringVal">0</span></label>
-      <input type="range" id="rings" min="0" max="10" oninput="updateValue('rings','ringVal')">
+      <label>Championships: <span id="ringVal">0</span></label>
+      <input type="range" id="rings" min="0" max="10" value="0" oninput="updateValue('rings','ringVal')">
 
-      <label>Points (k): <span id="ptsVal">0</span></label>
-      <input type="range" id="points" min="0" max="40" oninput="updateValue('points','ptsVal')">
+      <label>Career Points (thousands): <span id="ptsVal">0</span></label>
+      <input type="range" id="points" min="0" max="40" value="0" oninput="updateValue('points','ptsVal')">
 
       <label>Years Retired: <span id="retVal">0</span></label>
-      <input type="range" id="retired" min="0" max="10" oninput="updateValue('retired','retVal')">
+      <input type="range" id="retired" min="0" max="10" value="0" oninput="updateValue('retired','retVal')">
     </div>
+
+    <button onclick="toggleGraph()">GRAPH VIEW</button>
+
+    <canvas id="graph" width="320" height="160" style="display:none;"></canvas>
 
     <button class="calc-btn" onclick="calculate()">CALCULATE</button>
 
@@ -37,3 +51,4 @@
 
   <script src="script.js"></script>
 </body>
+</html>

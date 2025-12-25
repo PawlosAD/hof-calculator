@@ -3,6 +3,6 @@
   "short_name": "HOF Calc",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#0b0e1a",
-  "theme_color": "#c8102e"
+  "background_color": "#111111",
+  "theme_color": "#00ff88"
 }
