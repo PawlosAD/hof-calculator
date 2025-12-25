@@ -1,0 +1,41 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #0b0e1a;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+header {
+  background: linear-gradient(90deg, #1d428a, #c8102e);
+  padding: 20px;
+}
+
+button {
+  background: #fdb927;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.stats {
+  max-width: 400px;
+  margin: auto;
+  text-align: left;
+}
+
+input[type=range] {
+  width: 100%;
+}
+
+.calc-btn {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.result {
+  margin-top: 20px;
+  font-size: 24px;
+}
