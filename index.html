@@ -1,49 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Hall of Fame Calculator 🏀</title>
-  <link rel="stylesheet" href="style.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
 <body>
+  <div class="calculator">
 
-  <header>
-    <h1>🏀 Hall of Fame Calculator</h1>
-    <p>Basketball Edition</p>
-  </header>
+    <div class="screen">
+      <div class="title">HOF CALCULATOR</div>
+      <div id="percent" class="output">0%</div>
+      <div id="verdict" class="sub-output">---</div>
+      <div id="eligibility" class="eligibility"></div>
+    </div>
 
-  <section class="player-select">
-    <button onclick="loadPlayer('lebron')">LeBron James</button>
-    <button onclick="loadPlayer('jordan')">Michael Jordan</button>
-    <button onclick="loadPlayer('custom')">Custom Player</button>
-  </section>
+    <div class="presets">
+      <button onclick="loadPlayer('lebron')">LeBron</button>
+      <button onclick="loadPlayer('jordan')">Jordan</button>
+      <button onclick="loadPlayer('custom')">Custom</button>
+    </div>
 
-  <section class="stats">
-    <label>MVPs: <span id="mvpVal">0</span></label>
-    <input type="range" min="0" max="6" id="mvps" oninput="updateValue('mvps','mvpVal')" />
+    <div class="inputs">
+      <label>MVPs: <span id="mvpVal">0</span></label>
+      <input type="range" id="mvps" min="0" max="6" oninput="updateValue('mvps','mvpVal')">
 
-    <label>All-Star Selections: <span id="asVal">0</span></label>
-    <input type="range" min="0" max="20" id="allstars" oninput="updateValue('allstars','asVal')" />
+      <label>All-Stars: <span id="asVal">0</span></label>
+      <input type="range" id="allstars" min="0" max="20" oninput="updateValue('allstars','asVal')">
 
-    <label>Championships: <span id="ringVal">0</span></label>
-    <input type="range" min="0" max="10" id="rings" oninput="updateValue('rings','ringVal')" />
+      <label>Rings: <span id="ringVal">0</span></label>
+      <input type="range" id="rings" min="0" max="10" oninput="updateValue('rings','ringVal')">
 
-    <label>Career Points (k): <span id="ptsVal">0</span></label>
-    <input type="range" min="0" max="40" id="points" oninput="updateValue('points','ptsVal')" />
+      <label>Points (k): <span id="ptsVal">0</span></label>
+      <input type="range" id="points" min="0" max="40" oninput="updateValue('points','ptsVal')">
 
-    <label>Years Retired: <span id="retVal">0</span></label>
-    <input type="range" min="0" max="10" id="retired" oninput="updateValue('retired','retVal')" />
-  </section>
+      <label>Years Retired: <span id="retVal">0</span></label>
+      <input type="range" id="retired" min="0" max="10" oninput="updateValue('retired','retVal')">
+    </div>
 
-  <button class="calc-btn" onclick="calculate()">Calculate</button>
+    <button class="calc-btn" onclick="calculate()">CALCULATE</button>
 
-  <section class="result">
-    <h2 id="percent">0%</h2>
-    <p id="verdict">---</p>
-    <p id="eligibility"></p>
-  </section>
+  </div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
-</html>

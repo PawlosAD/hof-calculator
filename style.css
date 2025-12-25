@@ -1,29 +1,72 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #0b0e1a;
-  color: white;
-  text-align: center;
-  margin: 0;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Courier New", monospace;
+  color: #eaffea;
 }
 
-header {
-  background: linear-gradient(90deg, #1d428a, #c8102e);
+.calculator {
+  background: #222;
+  border-radius: 20px;
   padding: 20px;
+  width: 360px;
+  box-shadow: 0 0 25px rgba(0,255,100,0.2);
+}
+
+.screen {
+  background: #0b1f14;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: inset 0 0 10px #00ff88;
+}
+
+.title {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.output {
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.sub-output {
+  font-size: 18px;
+}
+
+.eligibility {
+  font-size: 12px;
+  color: #ffcc00;
+}
+
+.presets {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 button {
-  background: #fdb927;
-  border: none;
-  padding: 10px 15px;
-  margin: 5px;
-  font-weight: bold;
+  background: #333;
+  color: #00ff88;
+  border: 1px solid #00ff88;
+  border-radius: 6px;
+  padding: 8px;
   cursor: pointer;
 }
 
-.stats {
-  max-width: 400px;
-  margin: auto;
-  text-align: left;
+button:hover {
+  background: #00ff88;
+  color: #111;
+}
+
+.inputs label {
+  font-size: 12px;
+  display: block;
+  margin-top: 10px;
 }
 
 input[type=range] {
@@ -31,11 +74,9 @@ input[type=range] {
 }
 
 .calc-btn {
-  margin-top: 20px;
-  font-size: 18px;
-}
-
-.result {
-  margin-top: 20px;
-  font-size: 24px;
+  width: 100%;
+  margin-top: 15px;
+  background: #00ff88;
+  color: #111;
+  font-weight: bold;
 }
